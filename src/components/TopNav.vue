@@ -37,35 +37,20 @@ h1 {
     color: #0062A1;
     font-family: "Days One", sans-serif;
     font-weight: 400;
-    font-style: normal;
-    font-size: 40px;
-    line-height: 50.92px;
+    font-size: 30px;
     margin: 0px 60px 0px 10px;
+}
+
+.swap {
+    font-family: "Dancing Script", cursive;
 }
 
 nav {
     width: 70%;
 }
 
-.swap {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-size: 40px;
-    font-style: normal;
-    line-height: 48px;
-}
-
 ul {
     margin-right: 59px;
-}
-
-.menu li:last-child {
-    border-radius: 50px 0px 0px 50px;
-}
-
-.menu li:first-child {
-    border-radius: 0px 50px 50px 0px;
 }
 
 li {
@@ -74,22 +59,36 @@ li {
     list-style-type: none;
     display: inline;
     padding: 10px;
-    float: right;
+    float: inline-end;
     border: 1px solid #42474E;
     text-align: center;
     cursor: pointer;
     color: #42474E;
 }
+
+.menu li:first-child {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.menu li:last-child {
+    border-radius: 50px 0px 0px 50px;
+}
 .fab {
     width: 42px;
     height: 42px;
     background-color: #D1E4FF;
+    color: #42474E;
     margin-right: 20px;
     border-radius: 12px;
+    box-shadow: 0px 4px 10px -8px rgba(0,0,0,1);
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.fab:hover {
+    box-shadow: 0px 4px 10px -2px rgba(0,0,0,.5);
+};
 
 .fa-bag-shopping {
     height: 18px;

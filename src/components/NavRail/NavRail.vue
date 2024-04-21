@@ -20,7 +20,7 @@ import NavRailButton from './/components/NavRailButton.vue'
 <style scoped>
     .rail {
         height: 100%;
-        width: 88px;
+        width: min-content;
         background-color: #f9f8fc;
        display: flex;
        flex-direction: column;

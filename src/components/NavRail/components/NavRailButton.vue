@@ -1,7 +1,7 @@
 <template>
     <div class="button">
         <div class="icon">
-            <i class="fa-solid fa-house" />
+            <i class="fa fa-house"></i>
         </div>
         <p>{{ railButton }}</p>
     </div>
