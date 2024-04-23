@@ -24,6 +24,7 @@ import NavRailButton from './/components/NavRailButton.vue'
         background-color: #f9f8fc;
        display: flex;
        flex-direction: column;
-       justify-content: center
+       justify-content: center;
+       border-right: 1px solid #73777F;
     }
 </style>

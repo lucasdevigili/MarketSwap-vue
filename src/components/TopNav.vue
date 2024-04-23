@@ -5,9 +5,9 @@
         </div>
         <nav>
             <ul class="menu">
-                <li><span>Catálogo</span></li>
-                <li><span>Cadastrar Produto</span></li>
-                <li><span>Cadastrar Categoria</span></li>
+                <li class="catalog"><span>Catálogo</span></li>
+                <li class="regProduct"><span>Cadastrar Produto</span></li>
+                <li class="regCatagory"><span>Cadastrar Categoria</span></li>
             </ul>
         </nav>
         <div class="fab"><i class="fa-solid fa-bag-shopping"></i></div>
@@ -32,6 +32,7 @@ header {
     align-items: center;
     flex-direction: row;
 }
+
 h1 {
     width: 100%;
     color: #0062A1;
@@ -56,23 +57,22 @@ ul {
 li {
     width: calc(100%/3.3);
     font-size: 16px;
-    list-style-type: none;
     display: inline;
     padding: 10px;
-    float: inline-end;
+    float: inline-start;
     border: 1px solid #42474E;
     text-align: center;
-    cursor: pointer;
     color: #42474E;
 }
 
 .menu li:first-child {
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 50px 0px 0px 50px;
 }
 
 .menu li:last-child {
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 0px 50px 50px 0px;
 }
+
 .fab {
     width: 42px;
     height: 42px;
@@ -80,15 +80,10 @@ li {
     color: #42474E;
     margin-right: 20px;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px -8px rgba(0,0,0,1);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.fab:hover {
-    box-shadow: 0px 4px 10px -2px rgba(0,0,0,.5);
-};
 
 .fa-bag-shopping {
     height: 18px;
@@ -102,5 +97,4 @@ li {
     border-radius: 50px;
     margin-right: 20px;
 }
-
 </style>
