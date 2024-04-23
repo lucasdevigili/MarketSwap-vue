@@ -38,7 +38,7 @@
     },
     data() {
       return {
-        products: true,
+        products: false,
         category: false
       };
     },

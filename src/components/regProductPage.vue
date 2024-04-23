@@ -23,9 +23,9 @@
           <span>Error</span>
         </div>
 
-        <div class="inptContainner inputImg">
-          <label class="label">Enviar Imagem: <i class="fa-solid fa-file-arrow-up"></i></label>
-          <input type="file">
+        <div class="inptContainner">
+          <label class="label">Enviar Imagem: </label>
+          <input type="text" v-model="novoProduto.img"/>
           <span>Error</span>
         </div>
 
@@ -36,7 +36,7 @@
         </div>
 
         <div class="buttons">
-          <button type="button" @click="clearList">Cancelar</button>
+          <button type="button" @click="limparListaProdutos">Cancelar</button>
           <button type="submit">Adicionar</button>
         </div>
       </div>
@@ -53,6 +53,7 @@ export default {
         nome: "",
         categoria: "",
         preço: "",
+        img: "",
         descrição: ""
       },
       listaProdutos: []
@@ -65,19 +66,20 @@ export default {
     addProduct() {
       this.listaProdutos.push(JSON.parse(JSON.stringify(this.novoProduto)));
       localStorage.setItem("listaProdutos", JSON.stringify(this.listaProdutos));
-      this.clearProduct();
+      this.limparNovoProduto();
 
       console.log("Novo produto adicionado e salvo no localStorage!");
     },
-    clearProduct() {
+    limparNovoProduto() {
       this.novoProduto = {
         nome: "",
         categoria: "",
         preço: "",
+        img: "",
         descrição: ""
       };
     },
-    clearList() {
+    limparListaProdutos() {
       localStorage.removeItem("listaProdutos");
       this.listaProdutos = [];
       console.log("Lista de produtos removida do localStorage!");
@@ -132,26 +134,6 @@ form {
 .inptContainner span {
   font-size: 12px;
   color: #ba1a1a;
-}
-
-.inputImg input[type="file"] {
-  display: block;
-  border: none;
-  opacity: 0;
-  position: absolute;
-  top: 334px;
-}
-
-.inputImg label {
-  padding-top: 10px;
-  height: 30px;
-  width: 200px;
-  background-color: #ffffff;
-  border: 1px solid #73777f;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 20px;
-  cursor: pointer;
 }
 
 .fa-file-arrow-up {
