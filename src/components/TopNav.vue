@@ -1,24 +1,43 @@
 <template>
-    <header>
-        <div class="logo">
-            <h1>MARKET <span class="swap">Swap</span></h1>
-        </div>
-        <nav>
-            <ul class="menu">
-                <li class="catalog"><span>Catálogo</span></li>
-                <li class="regProduct"><span>Cadastrar Produto</span></li>
-                <li class="regCatagory"><span>Cadastrar Categoria</span></li>
-            </ul>
-        </nav>
-        <div class="fab"><i class="fa-solid fa-bag-shopping"></i></div>
-        <img class="userIcon" src="../assets/img64624f77d49397.45271659.jpg" alt="User Photo">
-    </header>
+  <header>
+    <div class="logo">
+      <h1>MARKET <span class="swap">Swap</span></h1>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li :class="{ active: currentTab === 'catalog' }" @click="catalogClick"><span>Catálogo</span></li>
+        <li :class="{ active: currentTab === 'regProduct' }" @click="productClick"><span>Cadastrar Produto</span></li>
+        <li :class="{ active: currentTab === 'regCategory' }" @click="categoryClick"><span>Cadastrar Categoria</span></li>
+      </ul>
+    </nav>
+    <div class="fab"><i class="fa-solid fa-bag-shopping"></i></div>
+    <img class="userIcon" src="../assets/img64624f77d49397.45271659.jpg" alt="User Photo">
+  </header>
 </template>
 
 <script>
 export default {
-    name: 'TopNav'
-}
+  name: 'TopNav',
+  data() {
+    return {
+      currentTab: 'catalog' // Set default tab to 'catalog'
+    };
+  },
+  methods: {
+    catalogClick() {
+      this.currentTab = 'catalog';
+      this.$emit('catalogClick');
+    },
+    productClick() {
+      this.currentTab = 'regProduct';
+      this.$emit('productClick');
+    },
+    categoryClick() {
+      this.currentTab = 'regCategory';
+      this.$emit('categoryClick');
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -48,6 +67,12 @@ h1 {
 
 nav {
     width: 70%;
+}
+
+.menu li.active {
+  background-color: #D1E4FF;
+  color: #001d35;
+  border-color: #73777f;
 }
 
 ul {

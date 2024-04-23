@@ -1,30 +1,53 @@
+User
 <template>
-    <div class="card">
+    <div>
+      <div class="card" v-for="(produto, index) in listaProdutos" :key="index">
         <div id="photo">
-            <img src="https://encurtador.com.br/ayLVZ" alt="">
+          <img :src="produto.imagemUrl" alt="Imagem do Produto">
         </div>
         <div class="container">
-            <div>
-                <h3>Nome do Produto</h3>
-                <h3>R$00,00</h3>
-            </div>
-            <h6>Categoria</h6>
+          <div>
+            <h3>{{ produto.nome }}</h3>
+            <h3>R$ {{ produto.preço }}</h3>
+          </div>
+          <h6>{{ produto.categoria }}</h6>
         </div>
-        <button class="view">Visualizar</button>
+        <button class="view" @click="visualizarProduto(produto)">Visualizar</button>
+      </div>
     </div>
-</template>
-
-<script>
-export default {
-    name: 'ProductCards'
-}
-</script>
-
+  </template>
+  
+  <script>
+  export default {
+    name: 'ProductCards',
+    data() {
+      return {
+        listaProdutos: []
+      };
+    },
+    created() {
+  
+      this.getLS();
+    },
+    methods: {
+      getLS() {
+        const produtosSalvos = localStorage.getItem('listaProdutos');
+        if (produtosSalvos) {
+          this.listaProdutos = JSON.parse(produtosSalvos);
+        }
+      },
+      visualizarProduto(produto) {
+        console.log('Visualizando produto:', produto);
+      }
+    }
+  };
+  </script>
+  
 <style scoped>
 .card {
     height: 55vh;
     width: 15vw;
-    margin-right: 16px;
+    margin: 0 16px 20px 0;
     background-color: #F0F4FA;
     border: 1px solid #F7F2FA;
     border-radius: 12px;

@@ -29,7 +29,7 @@ export default {
 <style>
 .cRegister {
     height: -webkit-fill-available;
-    background-color: #F0F4FA;
+    background-color: #fdfcff;
     border-top: 1px solid #73777F;
 }
 

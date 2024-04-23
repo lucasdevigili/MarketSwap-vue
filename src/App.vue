@@ -9,6 +9,10 @@
 }
 
 body {
+  overflow-x: hidden;
+}
+
+body {
   font-family: "Inter", sans-serif;
 }
 

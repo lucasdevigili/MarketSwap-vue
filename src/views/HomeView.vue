@@ -1,12 +1,16 @@
 <template>
     <div class="home">
-      <TopNav />
+      <TopNav
+        @catalogClick="showCatalog"
+        @productClick="showProducts"
+        @categoryClick="showCategories"
+      />
       <main>
         <NavRail />
         <div class="regProduct" v-if="products">
           <regProductPage />
         </div>
-        <div class="regProduct" v-else-if="category">
+        <div class="regCategory" v-else-if="category">
           <regCategoryPage />
         </div>
         <div class="catalog" v-else>
@@ -17,11 +21,11 @@
   </template>
   
   <script>
-  import TopNav from '@/components/TopNav.vue'
-  import NavRail from '@/components/NavRail/NavRail.vue'
-  import ProductPage from '@/components/products/ProductPage.vue'
-  import regProductPage from '@/components/regProductPage.vue'
-  import regCategoryPage from "@/components/regCategoryPage.vue";
+  import TopNav from '@/components/TopNav.vue';
+  import NavRail from '@/components/NavRail/NavRail.vue';
+  import ProductPage from '@/components/products/ProductPage.vue';
+  import RegProductPage from '@/components/regProductPage.vue';
+    import RegCategoryPage from '@/components/regCategoryPage.vue';
   
   export default {
     name: 'HomeView',
@@ -29,13 +33,13 @@
       TopNav,
       NavRail,
       ProductPage,
-      regProductPage,
-      regCategoryPage
+      RegProductPage,
+      RegCategoryPage
     },
     data() {
       return {
-        products: false,
-        category: true
+        products: true,
+        category: false
       };
     },
     methods: {
@@ -46,25 +50,28 @@
       showCategories() {
         this.category = true;
         this.products = false;
+      },
+      showCatalog() {
+        this.products = false;
+        this.category = false;
       }
     }
-  }
+  };
   </script>
-  
-  <style scoped>
-  .home {
+
+<style scoped>
+.home {
     height: 100vh;
     width: 100vw;
-  }
-  
-  main {
+}
+
+main {
     height: 85vh;
     width: 100%;
     display: flex;
-  }
-  
-  .regProduct {
+}
+
+.regProduct {
     width: 100%;
-  }
-  </style>
-  
+}
+</style>
